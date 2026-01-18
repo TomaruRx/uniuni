@@ -21,7 +21,7 @@ numpy, pygame, pygbag
 
 ## **実行方法**<br>
 ブラウザから実行：[こちら](https://tomarurx.github.io/uniuni/)から<br>
-ターミナルから実行：必要なライブラリをpipしたのちmain.pyを実行
+ターミナルから実行：必要なライブラリをpipしたのちmain.pyを実行(pygbagは任意)
 
 ## **制作時期**<br>
 2025/12-2026/1<br>
