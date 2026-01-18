@@ -91,7 +91,7 @@ class Creature:
                      (foot_x, foot_y), 2)  # すね
 
     face_center_x = draw_x
-    face_center_y = draw_y - 5  # 体の中心より少し上に頭があるイメージ
+    face_center_y = draw_y - 5  # 体の中心より少し上に頭があるようないめーじ
 
     pygame.draw.circle(
         screen, BLACK, (int(face_center_x - 4), int(face_center_y - 3)), 1)
@@ -106,7 +106,7 @@ async def main():
   screen = pygame.display.set_mode((WIDTH, HEIGHT))
   clock = pygame.time.Clock()
   font = pygame.font.SysFont("arial", 24)
-  result_font = pygame.font.SysFont("arial", 60)  # リザルト用
+  result_font = pygame.font.SysFont("arial", 60)  
 
   population = [Creature() for _ in range(POP_SIZE)]
   generation = 1
@@ -114,11 +114,11 @@ async def main():
   best_distance_all_time = 0.0
   camera_x = 0
 
-  state = "PLAY"  # ステートを追加
+  state = "PLAY"
   running = True
 
   while running:
-    screen.fill(BLACK)  # 描画の基本は背景塗りつぶし
+    screen.fill(BLACK)
 
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
@@ -137,7 +137,6 @@ async def main():
           state = "PLAY"
 
     if state == "PLAY":
-      # --- シミュレーションと描画のロジック（今のコードをここに入れる） ---
       furthest_x = max([c.x for c in population])
       current_dist = furthest_x - 100
       if current_dist > best_distance_all_time:
@@ -176,8 +175,8 @@ async def main():
       # --- 世代交代のチェック ---
       frame_count += 1
       if frame_count > LIFESPAN:
-        # 20世代を超えたか判定
-        if generation >= 10:
+        # 世代判定
+        if generation >= 20: # ここの値を変えると世代数の上限を変更可能
           state = "RESULT"
         else:
           for c in population:
